@@ -1,36 +1,77 @@
 import { createGlobalStyle } from 'styled-components';
-import { StyleConstants } from './StyleConstants';
-/* istanbul ignore next */
-export const GlobalStyle = createGlobalStyle`
+import theme from './theme';
+
+export const GlobalStyle = createGlobalStyle` 
   html,
   body {
     height: 100%;
     width: 100%;
-    line-height: 1.5;
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
-    background-color: ${p => p.theme.background};
-  }
-
-  body.fontLoaded {
-    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: white;
+    color: ${theme.textColor};
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 400px;
+    margin: 0;
   }
   
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h2 {
+    font-size: 23px;
+    margin: 20px 0 10px 0;
+  }
+  
+  h3 {
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+  
+  h4 {
+    font-size: 18px;
+    margin: 20px 0 5px 0;
+  }
+
+  #root {
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+
   p,
   label {
-    line-height: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    
+    a {
+      color: ${theme.linkColor};
+      font-weight: bold;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
-  input, select, button {
+  input, select {
     font-family: inherit;
     font-size: inherit;
-  }
-
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
   }
 `;
