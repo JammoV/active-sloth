@@ -1,6 +1,7 @@
 {
   "name": "active-sloth",
   "version": "0.1.0",
+  "homepage": "http://JammoV.github.io/active-sloth",
   "private": true,
   "dependencies": {
     "@apollo/client": "3.2.1",
@@ -46,6 +47,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "start:prod": "yarn build && serve -s build",
