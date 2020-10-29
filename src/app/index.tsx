@@ -14,6 +14,7 @@ import { HomePage } from './pages/Home/Loadable';
 import { About } from './pages/About/Loadable';
 import { Posts } from './pages/Posts/Loadable';
 import { Post } from './pages/Post/Loadable';
+import { Tags } from './pages/Tags/Loadable';
 import { NotFoundPage } from './pages/NotFound/Loadable';
 
 export function App() {
@@ -32,6 +33,7 @@ export function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/posts" component={Posts} />
           <Route exact path="/post/:urlKey" component={Post} />
+          <Route exact path="/tags" component={Tags} />
           <Route component={NotFoundPage} />
         </Switch>
       </Container>

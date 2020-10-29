@@ -31,7 +31,7 @@ export interface GetPostsResult {
 
 export interface GetPostsVars {}
 
-interface Post {
+export interface Post {
   id: string;
   title: string;
   url_key: string;

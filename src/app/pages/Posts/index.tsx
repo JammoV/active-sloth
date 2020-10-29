@@ -12,7 +12,9 @@ export function Posts() {
     <>
       <CenteredHeader>Filter op</CenteredHeader>
       <CategoryFilter
-        onChange={category => setCategoryFilter(category)}
+        onChange={category =>
+          setCategoryFilter(categoryFilter === category ? '' : category)
+        }
         activeFilter={categoryFilter}
       />
       <PostsGrid posts={posts} categoryFilter={categoryFilter} />

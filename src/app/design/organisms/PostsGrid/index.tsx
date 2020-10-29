@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 interface PostsGridProps {
   posts: Post[];
-  categoryFilter: string | null;
+  categoryFilter?: string | null;
 }
 
 const PostsGrid: React.FC<PostsGridProps> = ({
