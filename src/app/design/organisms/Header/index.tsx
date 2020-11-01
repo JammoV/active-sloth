@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { FaHome, FaPenSquare, FaAddressCard } from 'react-icons/fa';
 import logo from './images/the-active-sloth.png';
 
 const Header = () => {
+  const { pathname } = useLocation();
+
   return (
     <HeaderContainer>
       <Link to="/">
@@ -19,7 +21,11 @@ const Header = () => {
           <FaHome />
           Home
         </NavigationLink>
-        <NavigationLink key={2} to="/posts/">
+        <NavigationLink
+          key={2}
+          to="/posts/"
+          isActive={() => pathname.startsWith('/post')}
+        >
           <FaPenSquare />
           Blogs
         </NavigationLink>
@@ -101,10 +107,15 @@ const NavigationLink = styled(NavLink)`
   }
 
   @media screen and (max-width: ${props => props.theme.screenSmMax}) {
+    align-items: center;
     color: white;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    font-size: 15px;
+
+    svg {
+      font-size: 17px;
+    }
 
     &.active {
       color: white;

@@ -7,6 +7,7 @@ import PostImage, {
 import PostListComponent from '../../molecules/PostListComponent';
 import PostContentComponent from '../../molecules/PostContentComponent';
 import RecentPosts, { DisplayType } from '../../molecules/RecentPosts';
+import Tags from '../../molecules/Tags';
 
 enum ComponentTypes {
   CONTENT = 'ComponentPostPostContent',
@@ -55,10 +56,15 @@ const Post: React.FC<PostProps> = ({ post }) => {
             }
             return <></>;
           })}
+        {post.tags && post.tags.length > 0 && <Tags tags={post.tags} />}
       </Article>
       <Sidebar>
         <SidebarHeader>Recente posts</SidebarHeader>
-        <RecentPosts displayType={DisplayType.Shortened} limit={10} />
+        <RecentPosts
+          displayType={DisplayType.Shortened}
+          limit={10}
+          skip={post.title}
+        />
       </Sidebar>
     </Container>
   );
@@ -69,6 +75,10 @@ export default Post;
 const Header = styled.h1`
   font-size: 30px;
   margin: 10px 0;
+
+  @media screen and (max-width: ${props => props.theme.screenSmMax}) {
+    font-size: 25px;
+  }
 `;
 
 const DatePublished = styled.p`

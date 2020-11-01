@@ -5,7 +5,7 @@ import constants from '../../constants';
 import GetAbout from '../../../graphql/GetAbout';
 import styled from 'styled-components';
 
-export function About() {
+export function AboutPage() {
   const { about } = GetAbout();
   return (
     <>
@@ -17,6 +17,8 @@ export function About() {
     </>
   );
 }
+
+export default AboutPage;
 
 const AboutContent = styled(ReactMarkdown)`
   margin: 0 auto;

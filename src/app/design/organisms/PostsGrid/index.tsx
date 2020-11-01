@@ -15,17 +15,19 @@ const PostsGrid: React.FC<PostsGridProps> = ({
   return (
     <>
       <PostsWrapper>
-        {posts.map(post => {
-          if (categoryFilter) {
-            if (post.category === categoryFilter) {
+        {posts.length > 0 &&
+          posts.map(post => {
+            if (categoryFilter) {
+              if (post.category === categoryFilter) {
+                return <PostCard post={post} key={post.id} />;
+              }
+            } else {
               return <PostCard post={post} key={post.id} />;
             }
-          } else {
-            return <PostCard post={post} key={post.id} />;
-          }
-          return <></>;
-        })}
+            return <></>;
+          })}
       </PostsWrapper>
+      {posts.length === 0 && <p>Geen posts gevonden.</p>}
     </>
   );
 };

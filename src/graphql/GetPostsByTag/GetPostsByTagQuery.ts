@@ -18,6 +18,9 @@ const GetPostsByTagQuery = gql`
       }
       intro
       date
+      tags {
+        tag
+      }
     }
   }
 `;

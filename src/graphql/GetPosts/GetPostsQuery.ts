@@ -21,6 +21,9 @@ const GetPostsQuery = gql`
       }
       intro
       date
+      tags {
+        tag
+      }
     }
   }
 `;
@@ -46,6 +49,9 @@ export interface Post {
   };
   intro: string;
   date: string;
+  tags: {
+    tag: string[];
+  };
 }
 
 export default GetPostsQuery;

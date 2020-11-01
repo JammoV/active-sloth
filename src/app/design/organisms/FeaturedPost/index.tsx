@@ -38,6 +38,10 @@ const FeaturedImageWrapper = styled.div`
   position: absolute;
   width: calc(50% + 40px);
 
+  @media screen and (min-width: ${props => props.theme.screenMdMin}) {
+    padding-top: 20px;
+  }
+
   @media screen and (max-width: ${props => props.theme.screenMdMax}) {
     width: calc(40% + 40px);
   }

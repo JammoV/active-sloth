@@ -40,7 +40,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     min-width: 100%;
   }
   
@@ -73,5 +75,15 @@ export const GlobalStyle = createGlobalStyle`
   input, select {
     font-family: inherit;
     font-size: inherit;
+  }
+
+  @media screen and (max-width: ${theme.screenSmMax}) {
+    h1 {
+      font-size: 22px;
+    }
+
+    h2 {
+      font-size: 21px;
+    }
   }
 `;

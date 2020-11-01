@@ -26,6 +26,8 @@ export function HomePage() {
   );
 }
 
+export default HomePage;
+
 const ReadMore = styled.p`
   text-align: center;
 `;

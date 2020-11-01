@@ -24,6 +24,9 @@ export interface PostInterface {
   intro: string;
   content: DynamicContentComponent[];
   cover: ImageInterface;
+  tags: {
+    tag: string;
+  }[];
 }
 
 const GetPost = (urlKey: string): GetPostResultInterface => {

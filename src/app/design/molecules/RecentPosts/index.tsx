@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import GetPosts from '../../../../graphql/GetPosts';
 import PostCard from '../PostCard';
+import Loader from '../../atoms/Loader';
 
 export enum DisplayType {
   Shortened,
@@ -11,22 +12,28 @@ export enum DisplayType {
 interface RecentPostsProps {
   limit?: number;
   displayType?: DisplayType;
+  skip?: String;
   withFeatured?: boolean;
 }
 
 const RecentPosts: React.FC<RecentPostsProps> = ({
   limit = 3,
   displayType = DisplayType.Default,
+  skip = null,
   withFeatured = true,
 }) => {
   const { loading, error, posts } = GetPosts(limit, withFeatured);
 
   if (loading || error) {
-    return <></>;
+    return <Loader />;
   }
+
   return (
     <PostsWrapper>
       {posts.map(post => {
+        if (skip !== null && post.title === skip) {
+          return <></>;
+        }
         return <PostCard post={post} displayType={displayType} key={post.id} />;
       })}
     </PostsWrapper>

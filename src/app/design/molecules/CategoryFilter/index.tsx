@@ -14,7 +14,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   const { loading, error, categories } = GetCategories();
 
   if (loading || error) {
-    return <p>Loading...</p>;
+    return <></>;
   }
 
   return (
@@ -46,6 +46,10 @@ const CategoriesWrapper = styled.div`
   justify-content: space-around;
   margin: ${props => props.theme.spacingSmall} 0;
   width: 100%;
+
+  @media screen and (max-width: ${props => props.theme.screenSmMax}) {
+    flex-direction: column;
+  }
 `;
 
 const Filter = styled.div`

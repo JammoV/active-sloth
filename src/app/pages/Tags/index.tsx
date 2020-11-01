@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import GetTags from '../../../graphql/GetTags';
 import GetPostsByTag from '../../../graphql/GetPostsByTag';
+import Loader from '../../design/atoms/Loader';
 import PostsGrid from '../../design/organisms/PostsGrid';
+import Tags from '../../design/molecules/Tags';
 
-export function Tags() {
-  const [activeTag, setActiveTag] = useState<string>('');
+export function TagsPage() {
+  let { tag } = useParams();
   const { tags } = GetTags();
-  const { posts, loading, error } = GetPostsByTag(activeTag);
+  const { posts, loading, error } = GetPostsByTag(tag);
 
   return (
     <>
-      <h2>Alle tags</h2>
-      {tags.map(({ tag }, index) => (
-        <span onClick={() => setActiveTag(tag)} key={index}>
-          {tag}
-        </span>
-      ))}
+      <Tags tags={tags} />
 
-      {activeTag && (
+      {tag && (
         <>
-          <h3>Alle posts met tag {activeTag}</h3>
+          <h3>Alle posts met tag {tag}</h3>
+          {loading && <Loader />}
           {!loading && !error && <PostsGrid posts={posts} />}
         </>
       )}
     </>
   );
 }
+
+export default TagsPage;
