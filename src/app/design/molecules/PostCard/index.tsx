@@ -10,6 +10,7 @@ export enum DisplayType {
 
 interface ImageInterface {
   url: string;
+  alternativeText: string;
   caption?: string;
 }
 
@@ -37,7 +38,9 @@ const PostCard: React.FC<PostCardProps> = ({
       <Card>
         <PostImage
           imageUrl={post.cover.url}
-          imageAlt={post.cover.url ? post.cover.url : post.title}
+          imageAlt={
+            post.cover.alternativeText ? post.cover.alternativeText : post.title
+          }
           categoryLabel={post.category}
         />
         <Title>{post.title}</Title>

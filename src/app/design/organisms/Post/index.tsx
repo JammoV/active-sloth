@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 import { PostInterface } from '../../../../graphql/GetPost';
 import PostImage, {
   DisplayType as ImageDisplayType,
@@ -21,12 +22,16 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ post }) => {
   return (
     <Container>
+      <Helmet>
+        <title>{post.title}</title>
+        <meta name="description" content={post.intro} />
+      </Helmet>
       <Article>
         <Header>{post.title}</Header>
         <DatePublished>Geplaatst op {post.date}</DatePublished>
         <PostImage
           imageUrl={post.cover.url}
-          imageAlt={post.cover.caption || post.title}
+          imageAlt={post.cover.alternativeText || post.title}
           categoryLabel={post.category}
           displayType={ImageDisplayType.Post}
         />

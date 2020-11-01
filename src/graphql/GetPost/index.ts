@@ -14,6 +14,7 @@ interface GetPostResultInterface {
 
 interface ImageInterface {
   url: string;
+  alternativeText: string;
   caption?: string;
 }
 

@@ -12,7 +12,7 @@ const FeaturedPost = () => {
       <FeaturedImageWrapper>
         <FeaturedImage
           imageUrl={post.cover.url}
-          imageAlt={post.title}
+          imageAlt={post.cover.alternativeText || post.title}
           displayType={DisplayType.Post}
           categoryLabel={post.category}
         />

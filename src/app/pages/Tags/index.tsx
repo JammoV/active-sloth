@@ -14,7 +14,6 @@ export function TagsPage() {
   return (
     <>
       <Tags tags={tags} />
-
       {tag && (
         <>
           <h3>Alle posts met tag {tag}</h3>

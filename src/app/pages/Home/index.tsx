@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home</title>
+        <title>Home - The Active Sloth</title>
         <meta name="description" content={constants.description} />
       </Helmet>
       <HeroImage />

@@ -10,6 +10,7 @@ interface GetPostsResultInterface {
 
 interface ImageInterface {
   url: string;
+  alternativeText: string;
   caption?: string;
 }
 
